@@ -35,13 +35,13 @@ def search(keywords, target_dict):
                 break
         else:
             if count_finded > 9:
-                return '\n  检索结果超过10条了！再添加一个关键词试试吧！\n'
+                return '\n   检索结果超过10条了！再添加一个关键词试试吧！\n'
             else:
                 count_finded += 1
-                return_str += '\n  %d.%s\n    %s' %(count_finded, key, value)
+                return_str += '\n   %d.%s\n      %s' %(count_finded, key, value)
 
     # 格式化返回字符串
-    return_str = '\n  共检索到%d条结果！\n%s' %(count_finded, return_str)
+    return_str = '\n   共检索到%d条结果！\n%s' %(count_finded, return_str)
     return return_str
 
 
