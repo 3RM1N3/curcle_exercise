@@ -1,5 +1,5 @@
-import itchat, time
-from itchat.content import TEXT
+import time
+
 
 # 定义题目字典
 questions = {}
@@ -21,7 +21,7 @@ def choose_db():
     for line in lines:
         l = line.split('@')
         questions[l[0]] = l[1]
-    print('\n数据库导入完毕...\n')
+    print('\n数据库导入完毕...\n\n')
 
 
 def search(keywords, target_dict):
@@ -46,14 +46,19 @@ def search(keywords, target_dict):
 
 
 # main
-print('\n欢迎使用自动查题程序！')
+print('\n欢迎使用此查题程序！')
+time.sleep(1)
 print('\n请在“->”符号后输入关键词，')
-print('熟悉微信版本的朋友请注意，软件版不需要使用@字符，')
-print('\n关键词之间以 空格键 分隔，且数目无上限，\n')
+time.sleep(1)
+print('（熟悉微信版本的朋友请注意，软件版不需要使用@字符）')
+time.sleep(1)
+print('\n关键词之间以 空格键 分隔，且关键词数目无上限，\n')
+time.sleep(1)
 print('例如输入“细胞 区别于”，最后按回车键结束。')
-print('任何时候在“->”后输入“exit”以退出程序。')
-time.sleep(2)
-print('\n*郑重声明*：本程序仅供学习交流，请勿用于非法用途并于下载后24小时内删除。')
+time.sleep(1)
+print('\n任何时候在“->”后输入“exit”以退出程序。')
+time.sleep(1)
+print('\n*郑重声明*：本程序为测试用，并非最终版本')
 time.sleep(2)
 choose_db()
 while 1:
