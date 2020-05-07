@@ -1,4 +1,4 @@
-import time
+import time, os, sys
 
 
 # 定义题目字典
@@ -46,6 +46,12 @@ def search(keywords, target_dict):
 
 
 # main
+# 判断平台并清空控制台
+if 'win' in sys.platform:
+    os.system('cls')
+else:
+    os.system('clear')
+    
 print('\n欢迎使用此查题程序！')
 time.sleep(1)
 print('\n请在“->”符号后输入关键词，')
@@ -66,3 +72,4 @@ while 1:
     if key1 == 'exit':
         break
     print(search(key1, questions))
+print('\n谢谢使用，下次见咯！\n')
