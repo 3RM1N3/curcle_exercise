@@ -1,4 +1,4 @@
-import time, os, sys
+import time, os, sys, base64
 
 
 # 定义题目字典
@@ -10,11 +10,11 @@ def choose_db():
     '''导入数据'''
 
     global questions
-    db = 'liulian.txt'
     try:
         # 分行导入题库txt文件，储存为字典
-        with open(db, 'r', encoding='UTF-8') as f:
-            lines = f.readlines()
+        with open('liuke.ltr', 'rb') as f:
+            text = base64.b64decode(f.read()).decode()
+            lines = text.split('\n')
     except FileNotFoundError:
         print('文件不存在！请核对后重试。')
         exit()
@@ -38,7 +38,7 @@ def search(keywords, target_dict):
                 return '\n   检索结果超过10条了！再添加一个关键词试试吧！\n'
             else:
                 count_finded += 1
-                return_str += '\n   %d.%s\n      %s' %(count_finded, key, value)
+                return_str += '\n   %d.%s\n      %s\n' %(count_finded, key, value)
 
     # 格式化返回字符串
     return_str = '\n   共检索到%d条结果！\n%s' %(count_finded, return_str)
@@ -52,7 +52,7 @@ if 'win' in sys.platform:
 else:
     os.system('clear')
     
-print('\n欢迎使用此查题程序！')
+print('\n欢迎使用小圆搜题！')
 time.sleep(1)
 print('\n请在“->”符号后输入关键词，')
 time.sleep(1)
