@@ -35,21 +35,58 @@ label_1 = tk.Label(
 )
 
 
-def radio_bt(options_dict):
-    '''通过字典定义单选'''
 
-    global choosen
-    for key, value in options_dict.items():
-        radio_bt = tk.Radiobutton(
-            f2,
-            text = (key + '：' + value),
-            anchor = 'w',
-            width = 80,
-            font = tkFont.Font(size=14),
-            variable = choosen,
-            value = key,
-        )
-        radio_bt.grid(column=1, sticky='NSWE', padx=2)
+# 定义单选
+radio_bt_A = tk.Radiobutton(
+    f2,
+    text = '',
+    anchor = 'w',
+    width = 80,
+    font = tkFont.Font(size=14),
+    variable = choosen,
+    value = '',
+)
+radio_bt_B = tk.Radiobutton(
+    f2,
+    text = '',
+    anchor = 'w',
+    width = 80,
+    font = tkFont.Font(size=14),
+    variable = choosen,
+    value = '',
+)
+radio_bt_C = tk.Radiobutton(
+    f2,
+    text = '',
+    anchor = 'w',
+    width = 80,
+    font = tkFont.Font(size=14),
+    variable = choosen,
+    value = '',
+)
+radio_bt_D = tk.Radiobutton(
+    f2,
+    text = '',
+    anchor = 'w',
+    width = 80,
+    font = tkFont.Font(size=14),
+    variable = choosen,
+    value = '',
+)
+radio_bt_E = tk.Radiobutton(
+    f2,
+    text = '',
+    anchor = 'w',
+    width = 80,
+    font = tkFont.Font(size=14),
+    variable = choosen,
+    value = '',
+)
+radio_bt_A.grid(column=1, sticky='NSWE', padx=2)
+radio_bt_B.grid(column=1, sticky='NSWE', padx=2)
+radio_bt_C.grid(column=1, sticky='NSWE', padx=2)
+radio_bt_D.grid(column=1, sticky='NSWE', padx=2)
+radio_bt_E.grid(column=1, sticky='NSWE', padx=2)
 
 
 # 定义上一题按钮
@@ -78,7 +115,6 @@ if __name__ == "__main__":
     
     label_1_text.set('1.某男，60岁，纤维胃镜检查发现胃窦部有一直径3cm大小边缘高起的溃疡，你认为确诊的方法是')
     options_dict = {'A': '细胞学检查', 'B': '活体组织检查', 'C': 'X线钡餐检查', 'D': '大便化验', 'E': '胃液分析'}
-    radio_bt(options_dict)
     # 放置组件
     label_1.grid(column=1, row=1, sticky='NSWE', padx=2, pady=2)
     button_pre.grid(row=1, column=1, pady=2)
