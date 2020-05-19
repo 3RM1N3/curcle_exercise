@@ -1,3 +1,7 @@
+import gui
+import global_var
+
+
 def import_data(path):
     '''通过传入路径导入题库'''
     
@@ -28,11 +32,37 @@ def import_data(path):
     return all_questions
 
 
+def generate_options(options_dict):
+    '''生成选项'''
 
-def generate_question_dict():
-    '''以选中的题库生成100道题目，储存为字典'''
+    radio_bt_list = [gui.radio_bt_A, gui.radio_bt_B, gui.radio_bt_C, gui.radio_bt_D, gui.radio_bt_E]
+    for key, value in options_dict.items():
+        for bt in radio_bt_list:
+            if key == bt['value']:
+                bt['text'] = key + '.' + value
+
+
+def generate_question():
+    '''以选中的题库生成100道题目'''
 
     pass
+
+
+def next_question():
+    '''下一题按钮绑定函数'''
+
+    global_var.count += 1
+    gui.label_1['text'] = global_var.ques_list[global_var.count][0]
+    generate_options(global_var.ques_list[global_var.count][1])
+
+
+def pre_question():
+    '''上一题按钮绑定函数'''
+
+    if global_var.count != 0:
+        global_var.count -= 1
+        gui.label_1['text'] = global_var.ques_list[global_var.count][0]
+        generate_options(global_var.ques_list[global_var.count][1])
 
 
 if __name__ == "__main__":
