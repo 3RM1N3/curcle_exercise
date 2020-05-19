@@ -1,5 +1,6 @@
 import tkinter as tk
 import tkinter.font as tkFont
+import funcs
 
 
 # 定义窗口
@@ -44,7 +45,7 @@ radio_bt_A = tk.Radiobutton(
     width = 80,
     font = tkFont.Font(size=14),
     variable = choosen,
-    value = '',
+    value = 'A',
 )
 radio_bt_B = tk.Radiobutton(
     f2,
@@ -53,7 +54,7 @@ radio_bt_B = tk.Radiobutton(
     width = 80,
     font = tkFont.Font(size=14),
     variable = choosen,
-    value = '',
+    value = 'B',
 )
 radio_bt_C = tk.Radiobutton(
     f2,
@@ -62,7 +63,7 @@ radio_bt_C = tk.Radiobutton(
     width = 80,
     font = tkFont.Font(size=14),
     variable = choosen,
-    value = '',
+    value = 'C',
 )
 radio_bt_D = tk.Radiobutton(
     f2,
@@ -71,7 +72,7 @@ radio_bt_D = tk.Radiobutton(
     width = 80,
     font = tkFont.Font(size=14),
     variable = choosen,
-    value = '',
+    value = 'D',
 )
 radio_bt_E = tk.Radiobutton(
     f2,
@@ -80,26 +81,28 @@ radio_bt_E = tk.Radiobutton(
     width = 80,
     font = tkFont.Font(size=14),
     variable = choosen,
-    value = '',
+    value = 'E',
 )
-radio_bt_A.grid(column=1, sticky='NSWE', padx=2)
-radio_bt_B.grid(column=1, sticky='NSWE', padx=2)
-radio_bt_C.grid(column=1, sticky='NSWE', padx=2)
-radio_bt_D.grid(column=1, sticky='NSWE', padx=2)
-radio_bt_E.grid(column=1, sticky='NSWE', padx=2)
+radio_bt_A.grid(column=1, sticky='w', padx=2)
+radio_bt_B.grid(column=1, sticky='w', padx=2)
+radio_bt_C.grid(column=1, sticky='w', padx=2)
+radio_bt_D.grid(column=1, sticky='w', padx=2)
+radio_bt_E.grid(column=1, sticky='w', padx=2)
 
 
 # 定义上一题按钮
 button_pre = tk.Button(
     f3,
     text = '提交，到上一题',
-    width = 15
+    width = 15,
+    command = funcs.pre_question,
 )
 # 定义下一题按钮
 button_next = tk.Button(
     f3,
     text = '提交，到下一题',
-    width = 15
+    width = 15,
+    command = funcs.next_question,
 )
 # 定义交卷按钮
 button_sub = tk.Button(
