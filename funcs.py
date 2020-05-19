@@ -2,7 +2,7 @@ def import_data(path):
     '''通过传入路径导入题库'''
     
     # 打开文件
-    with open('path', 'r', encoding='UTF-8') as f:
+    with open(path, 'r', encoding='UTF-8') as f:
         lines = f.readlines()
 
     '''
@@ -12,8 +12,20 @@ def import_data(path):
                      ...]
     '''
     all_questions = []
+    answer_dict = {}
+
     for l in lines:
-        pass
+        if l[0] in '123456789':
+            all_questions.append([l])
+        elif l[0] in 'ABCDE':
+            answer_dict[l.split('.')[0]] = l.split('.')[1]
+        elif '正确答案' in l:
+            all_questions[-1].append(answer_dict)
+            all_questions[-1].append(l.split(':')[-1])
+            answer_dict = {}
+    print('导入完成')
+
+    return all_questions
 
 
 
@@ -24,4 +36,6 @@ def generate_question_dict():
 
 
 if __name__ == "__main__":
-    pass
+    ques_list = import_data('病理选择15章.txt')
+    for i in ques_list:
+        print(i)
