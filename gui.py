@@ -1,10 +1,6 @@
 import tkinter as tk
-import time
 import tkinter.font as tkFont
 
-
-def test():
-    label_1['text'] = 'hahaha'
 
 # 定义窗口
 top = tk.Tk()
