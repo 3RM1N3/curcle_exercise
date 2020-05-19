@@ -1,5 +1,4 @@
-import gui
-import global_var
+import gui, global_var
 
 
 def import_data(path):
@@ -43,7 +42,7 @@ def generate_options(options_dict):
 
 
 def generate_question():
-    '''以选中的题库生成100道题目'''
+    '''以选中的题库生成100道测试题目'''
 
     pass
 
@@ -51,18 +50,25 @@ def generate_question():
 def next_question():
     '''下一题按钮绑定函数'''
 
-    global_var.count += 1
-    gui.label_1['text'] = global_var.ques_list[global_var.count][0]
-    generate_options(global_var.ques_list[global_var.count][1])
+    if global_var.count < len(global_var.ques_list)-1:
+        global_var.count += 1
+        gui.label_1['text'] = global_var.ques_list[global_var.count][0]
+        generate_options(global_var.ques_list[global_var.count][1])
 
 
 def pre_question():
     '''上一题按钮绑定函数'''
 
-    if global_var.count != 0:
+    if global_var.count > 0:
         global_var.count -= 1
         gui.label_1['text'] = global_var.ques_list[global_var.count][0]
         generate_options(global_var.ques_list[global_var.count][1])
+
+
+def commit():
+    '''交卷按钮绑定函数'''
+
+    pass
 
 
 if __name__ == "__main__":
