@@ -16,7 +16,6 @@ f2.grid(row=2, pady=3)
 f3.grid(row=3, pady=3)
 
 # 定义可变文本
-label_1_text = tk.StringVar()   # 用于显示题目
 choosen = tk.StringVar()        # 用于获取已选择项
 
 
@@ -24,7 +23,7 @@ choosen = tk.StringVar()        # 用于获取已选择项
 
 label_1 = tk.Label(
     f1,
-    textvariable = label_1_text,
+    text = '',
     bg = 'yellow',
     anchor = 'nw',
     justify = 'left',
@@ -113,7 +112,7 @@ button_sub = tk.Button(
 
 if __name__ == "__main__":
     
-    label_1_text.set('1.某男，60岁，纤维胃镜检查发现胃窦部有一直径3cm大小边缘高起的溃疡，你认为确诊的方法是')
+    label_1['text'] = ('1.某男，60岁，纤维胃镜检查发现胃窦部有一直径3cm大小边缘高起的溃疡，你认为确诊的方法是')
     options_dict = {'A': '细胞学检查', 'B': '活体组织检查', 'C': 'X线钡餐检查', 'D': '大便化验', 'E': '胃液分析'}
     # 放置组件
     label_1.grid(column=1, row=1, sticky='NSWE', padx=2, pady=2)
