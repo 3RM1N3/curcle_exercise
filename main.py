@@ -10,27 +10,34 @@ class Window(App):
     def main(self):
         self.type = 0
         container_top = Container(width='100%', height=800, margin='0px', style={'display': 'block', 'overflow': 'auto', 'text-align': 'center'})
-        container_top.css_background_color = "rgb(0,188,212)"
+        container_top.css_background_color = "rgb(69,90,100)"
 
         container_bottom = Container(width='100%', height='50px', layout_orientation=Container.LAYOUT_HORIZONTAL, margin='0px', style={'display': 'block'})
-        container_bottom.css_background_color = "rgb(180,188,212)"
+        container_bottom.css_background_color = "rgb(69,90,100)"
 
         container0 = Container(width=480, margin='0px auto', style={'display': 'block', 'overflow': 'hidden'})
+        container0.css_background_color = "rgb(69,90,100)"
 
         self.btn = Button('查找', width=90, height=40, margin='5px')
+        self.btn.css_background_color = 'rgb(255,235,59)'
+        self.btn.css_font_size = '130%'
+        self.btn.css_color = 'rgb(0,0,0)'
         self.btn.onclick.do(self.on_button_pressed)
 
-        self.input_0 = Input('', width=360, height=35, margin='5px')
+        self.input_0 = Input('', width=355, height=35, margin='5px')
         self.input_0.css_font_size = "200%"
         container_bottom.append([self.input_0, self.btn])
 
         self.dropDown = DropDown.new_from_list(('选择', '名解', '问答', '病例分析'), width=460, height=30, margin='10px')
+        self.dropDown.css_background_color = 'rgb(230,230,230)'
         self.dropDown.onchange.do(self.drop_down_changed)
         self.dropDown.select_by_value('选择')
 
         self.txt_show = TextInput('', width=460, height=730, margin='10px')
         self.txt_show.attr_maxlength = "0"
         self.txt_show.css_font_size = '130%'
+        self.txt_show.css_color = 'rgb(0,0,0)'
+        self.txt_show.css_background_color = 'rgb(230,230,230)'
         container_top.append([self.dropDown, self.txt_show])
 
         container0.append([container_bottom, container_top])
