@@ -4,21 +4,16 @@ conn = sqlite3.connect('bingsheng.db', check_same_thread=False)
 c = conn.cursor()
 
 def search_by_words(search_type: int, words_list: list):
-    table = {
-        0: ['choices', 'question', 'answer'],
-        1: ['phrases', 'phrase', 'explanation']
-    }
-    used_table = table[search_type]
-    keywords = ' AND %s LIKE ' % used_table[1]
-    keywords = keywords.join(['"%'+w+'%"' for w in words_list])
-    statement = 'SELECT * FROM %s WHERE %s LIKE ' % (used_table[0], used_table[1])
+    table = ['choices', 'phrases', 'qnas', 'cases']
+    keywords = ' AND question LIKE '.join(['"%'+w+'%"' for w in words_list])
+    statement = 'SELECT * FROM %s WHERE question LIKE ' % table[search_type]
     statement += keywords
     c.execute(statement)
-    result = c.fetchall()
-    result = ['\n\t'.join(i) for i in result[:]]
-    txt = '\n\n'.join(result)
+    result = ['：\n\t'.join(i) for i in c.fetchall()]
+    end_list = [('%d.%s' %(i+1, result[i])) for i in range(len(result))]
+    txt = '\n\n'.join(end_list)
     return txt
 
 
 if __name__ == '__main__':
-    print(search_by_words(0, ['心', '细胞', '肥大', '表面', '减少']))
+    print(search_by_words(3, ['男性']))

@@ -50,4 +50,4 @@ class Window(App):
 
     
 # start(Window, debug=True)
-start(Window, debug=True, address='0.0.0.0', port=8082)
+start(Window, debug=False, address='0.0.0.0', port=8082)
