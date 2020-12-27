@@ -47,7 +47,7 @@ class Window(App):
 
     def on_button_pressed(self, emitter):
         t = self.input_0.get_value()
-        result = search_by_words(self.type, t.split(' '))
+        result = search_by_words(self.type, t)
         self.txt_show.set_text(result)
 
 
